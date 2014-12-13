@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class = "col-sm-12" style = 'text-align: center;'>
+	      {% if messages %}
+      <div class='row'>
+        <div>
+          {% for message in messages %}
+          <p{% if message.tags == "success"%} class="alert alert-success"{% endif %}>{{ message }}</p>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+<h1> Just one more step. Please complete the following </h1>
+</div>
+
+			<h1> Join Now</h1>
+				<form method="POST" action=''> {% csrf_token %}
+					{{ form.as_p }}
+					<input type='submit' class = 'btn btn-success' value='Submit'>
+				</form>
+
+{% endblock %}
